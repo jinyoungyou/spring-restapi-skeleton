@@ -23,7 +23,7 @@ docker-compose up
 비지니스 로직 처리
 * Todo 도메인 관련 CRUD 처리 (JpaAuditing 적용)
 * Spring Security 를 통한 인가 구현 (AuthenticationFilter 적용)
-* Authentication 처리 (토큰 발행, 토큰 갱신)
+* Authorization 처리 (JWT 인가, 서비스별 권한 분리는 적용 안됨)
 
 
 ### todo-auth
