@@ -52,3 +52,173 @@ docker-compose up
 * Redis 연동 및 JWT refresh 구현
 * Exception 처리 추가
 * Front-end 페이지 추가
+
+## 동작 예시
+### Account 생성
+```http request
+POST http://localhost:8082/api/account/
+Content-Type: application/json
+
+{
+  "email": "testEmail@gmail.com",
+  "password": "testPassword"
+}
+```
+```json
+{
+  "resultCode": "000",
+  "message": "success",
+  "payload": {
+    "id": 2,
+    "email": "testEmail@gmail.com",
+    "authority": "ROLE_USER"
+  }
+}
+```
+### JWT 발급
+```http request
+POST http://localhost:8082/auth/token
+Content-Type: application/json
+
+{
+  "email": "testEmail@gmail.com",
+  "password": "testPassword"
+}
+```
+```json
+{
+  "resultCode": "000",
+  "message": "success",
+  "payload": {
+    "grantType": "bearer",
+    "accessToken": "eyJhbGciOiJIUzI1NiJ9. ...",
+    "refreshToken": "eyJhbGciOiJIUzI1NiJ9. ...",
+    "expiresIn": 1649999047155
+  }
+}
+```
+### JWT 리프레쉬
+```http request
+PUT http://localhost:8082/auth/token
+Content-Type: application/json
+
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiJ9. ...",
+  "refreshToken": "eyJhbGciOiJIUzI1NiJ9. ..."
+}
+```
+```json
+{
+  "resultCode": "000",
+  "message": "success",
+  "payload": {
+    "grantType": "bearer",
+    "accessToken": "eyJhbGciOiJIUzI1NiJ9. ...",
+    "refreshToken": "eyJhbGciOiJIUzI1NiJ9. ...",
+    "expiresIn": 1649999047155
+  }
+}
+```
+### 비정상적 JWT 요청
+```http request
+PUT http://localhost:8082/auth/token
+Content-Type: application/json
+
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiJ9. abcdefg...",
+  "refreshToken": "eyJhbGciOiJIUzI1NiJ9. abcdefg..."
+}
+```
+```json
+{
+  "status": 400,
+  "code": "400",
+  "message": "Invalid JWT token / 비정상적인 JWT 토큰입니다."
+}
+```
+### Todo 작성
+```http request
+POST http://localhost:8080/api/todo
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
+
+{
+    "title": "test",
+    "description": "desc",
+    "status": 1
+}
+```
+```json
+{
+  "resultCode": "000",
+  "message": "success",
+  "payload": {
+    "id": 1,
+    "title": "test",
+    "description": "desc",
+    "status": 1,
+    "createdAt": "2022-04-14T14:08:58.038472",
+    "createdBy": 1,
+    "updatedAt": "2022-04-14T14:08:58.038472",
+    "updatedBy": 1
+  }
+}
+```
+### Todo 리스트
+```http request
+GET http://localhost:8080/api/todo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
+```
+```json
+{
+  "resultCode": "000",
+  "message": "success",
+  "payload": [
+    {
+      "id": 1,
+      "title": "test",
+      "description": "dest",
+      "status": 1,
+      "createdAt": "2022-04-14T14:08:58.038472",
+      "createdBy": 1,
+      "updatedAt": "2022-04-14T14:08:58.038472",
+      "updatedBy": 1
+    }
+  ],
+  "pagination": {
+    "page": 0,
+    "totalPages": 1,
+    "elements": 1,
+    "totalElements": 1
+  }
+}
+```
+### Todo 수정
+```http request
+PUT http://localhost:8080/api/todo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
+
+{
+  "title": "updated test",
+  "description": "updated desc",
+  "status": 1
+}
+```
+```json
+{
+  "resultCode": "000",
+  "message": "success",
+  "payload": {
+    "id": 1,
+    "title": "updated test",
+    "description": "updated desc",
+    "status": 1,
+    "createdAt": "2022-04-14T14:08:58.038472",
+    "createdBy": 1,
+    "updatedAt": "2022-04-14T14:11:00.51996",
+    "updatedBy": 1
+  }
+}
+```
+
+
