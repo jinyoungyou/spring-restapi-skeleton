@@ -1,5 +1,5 @@
 ###
-POST http://localhost:8081/api/todo
+POST http://localhost:8082/api/todo
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY0OTkzMjM2N30.OUOKMqiKz8oTxUR2ig_JTfMKxh8yMXN2vrvpB3zcaA8
 
@@ -10,12 +10,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfVVNFU
 }
 
 ###
-GET http://localhost:8080/api/todo
+GET http://localhost:8082/api/todo
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY0OTkzMjM2N30.OUOKMqiKz8oTxUR2ig_JTfMKxh8yMXN2vrvpB3zcaA8
 
 
 ###
-PATCH http://localhost:8080/api/todo/1
+PUT http://localhost:8082/api/todo/1
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY0OTkzMjM2N30.OUOKMqiKz8oTxUR2ig_JTfMKxh8yMXN2vrvpB3zcaA8
 

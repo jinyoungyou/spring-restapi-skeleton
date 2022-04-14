@@ -1,23 +1,23 @@
 ###
-POST http://localhost:8082/api/account/
+POST http://localhost:8081/api/account/
 Content-Type: application/json
 
 {
-  "email": "nomaze@gmail.com",
+  "email": "testEmail@gmail.com",
   "password": "testPassword"
 }
 
 ###
-POST http://localhost:8082/auth/token
+POST http://localhost:8081/auth/token
 Content-Type: application/json
 
 {
-  "email": "nomaze@gmail.com",
+  "email": "testEmail@gmail.com",
   "password": "testPassword"
 }
 
 ###
-PUT http://localhost:8082/auth/token
+PUT http://localhost:8081/auth/token
 Content-Type: application/json
 
 {
@@ -26,7 +26,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8082/auth/token
+PUT http://localhost:8081/auth/token
 Content-Type: application/json
 
 {

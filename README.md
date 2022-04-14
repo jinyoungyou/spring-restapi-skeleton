@@ -56,7 +56,7 @@ docker-compose up
 ## 동작 예시
 ### Account 생성
 ```http request
-POST http://localhost:8082/api/account/
+POST http://localhost:8081/api/account/
 Content-Type: application/json
 
 {
@@ -77,7 +77,7 @@ Content-Type: application/json
 ```
 ### JWT 발급
 ```http request
-POST http://localhost:8082/auth/token
+POST http://localhost:8081/auth/token
 Content-Type: application/json
 
 {
@@ -99,7 +99,7 @@ Content-Type: application/json
 ```
 ### JWT 리프레쉬
 ```http request
-PUT http://localhost:8082/auth/token
+PUT http://localhost:8081/auth/token
 Content-Type: application/json
 
 {
@@ -121,7 +121,7 @@ Content-Type: application/json
 ```
 ### 비정상적 JWT 요청
 ```http request
-PUT http://localhost:8082/auth/token
+PUT http://localhost:8081/auth/token
 Content-Type: application/json
 
 {
@@ -138,7 +138,7 @@ Content-Type: application/json
 ```
 ### Todo 작성
 ```http request
-POST http://localhost:8081/api/todo
+POST http://localhost:8082/api/todo
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
 
@@ -166,7 +166,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
 ```
 ### Todo 리스트
 ```http request
-GET http://localhost:8081/api/todo
+GET http://localhost:8082/api/todo
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
 ```
 ```json
@@ -195,7 +195,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
 ```
 ### Todo 수정
 ```http request
-PUT http://localhost:8081/api/todo
+PUT http://localhost:8082/api/todo
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
 
 {

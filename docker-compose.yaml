@@ -15,7 +15,7 @@ services:
       timeout: 10s
       retries: 10
 
-  login-api:
+  auth-api:
     image: openjdk:11
     env_file: .env
     volumes:
@@ -27,12 +27,12 @@ services:
       - mysql
     command: bash -c "cd /home/todo && sh run.sh"
 
-  auth-api:
+  todo-api:
     image: openjdk:11
     env_file: .env
     volumes:
       - ./run.sh:/home/todo/run.sh
-      - ./todo-auth/build/libs:/home/todo/libs
+      - ./todo-api/build/libs:/home/todo/libs
     ports:
       - 8082:8080
     depends_on:
