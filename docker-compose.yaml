@@ -1,0 +1,40 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    env_file: .env
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    command: |
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
+
+  login-api:
+    image: openjdk:11
+    env_file: .env
+    volumes:
+      - ./run.sh:/home/todo/run.sh
+      - ./todo-auth/build/libs:/home/todo/libs
+    ports:
+      - 8081:8080
+    depends_on:
+      - mysql
+    command: bash -c "cd /home/todo && sh run.sh"
+
+  auth-api:
+    image: openjdk:11
+    env_file: .env
+    volumes:
+      - ./run.sh:/home/todo/run.sh
+      - ./todo-auth/build/libs:/home/todo/libs
+    ports:
+      - 8082:8080
+    depends_on:
+      - mysql
+    command: bash -c "cd /home/todo && sh run.sh"

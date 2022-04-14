@@ -1,0 +1,26 @@
+###
+POST http://localhost:8081/api/todo
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY0OTkzMjM2N30.OUOKMqiKz8oTxUR2ig_JTfMKxh8yMXN2vrvpB3zcaA8
+
+{
+    "title": "test",
+    "description": "dest",
+    "status": 1
+}
+
+###
+GET http://localhost:8080/api/todo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY0OTkzMjM2N30.OUOKMqiKz8oTxUR2ig_JTfMKxh8yMXN2vrvpB3zcaA8
+
+
+###
+PATCH http://localhost:8080/api/todo/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY0OTkzMjM2N30.OUOKMqiKz8oTxUR2ig_JTfMKxh8yMXN2vrvpB3zcaA8
+
+{
+  "title": "updated test",
+  "description": "updated desc",
+  "status": 1
+}

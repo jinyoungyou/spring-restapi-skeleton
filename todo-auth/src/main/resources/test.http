@@ -1,0 +1,35 @@
+###
+POST http://localhost:8082/api/account/
+Content-Type: application/json
+
+{
+  "email": "nomaze@gmail.com",
+  "password": "testPassword"
+}
+
+###
+POST http://localhost:8082/auth/token
+Content-Type: application/json
+
+{
+  "email": "nomaze@gmail.com",
+  "password": "testPassword"
+}
+
+###
+PUT http://localhost:8082/auth/token
+Content-Type: application/json
+
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY0OTg0MDYwN30.Ncsy7Qqojw_ji6oj_KQhRMRSRr1m_x8ewmo3wcmbyFE",
+  "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY1MDQ0NDgwN30.-dU4OLWiPnuxCGwoAigid6mBShLkY0sybKE-KAUjMjI"
+}
+
+###
+PUT http://localhost:8082/auth/token
+Content-Type: application/json
+
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY0OTg0MDYwN30.Ncsy7Qqojw_ji6oj_KQhRMRSRr1m_x8ewmo3wcmbyFE",
+  "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY1MDQ0NDgwN30.-dU4OLWiPnuxCGwoAigid6mBShLkY0sybKE-KAUjMjI"
+}
