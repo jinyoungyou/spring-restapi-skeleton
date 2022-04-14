@@ -138,7 +138,7 @@ Content-Type: application/json
 ```
 ### Todo 작성
 ```http request
-POST http://localhost:8080/api/todo
+POST http://localhost:8081/api/todo
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
 
@@ -166,7 +166,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
 ```
 ### Todo 리스트
 ```http request
-GET http://localhost:8080/api/todo
+GET http://localhost:8081/api/todo
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
 ```
 ```json
@@ -195,7 +195,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
 ```
 ### Todo 수정
 ```http request
-PUT http://localhost:8080/api/todo
+PUT http://localhost:8081/api/todo
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9. ...
 
 {
